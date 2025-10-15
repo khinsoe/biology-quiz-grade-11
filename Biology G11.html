@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Grade 12 Biology</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.4}
+    body{max-width:900px;margin:28px auto;padding:18px;color:#111}
+    h1{font-size:1.6rem;margin-bottom:4px}
+    .card{border:1px solid #e3e3e3;border-radius:10px;padding:14px;margin-bottom:14px;box-shadow:0 2px 6px rgba(0,0,0,0.03)}
+    label{display:block;margin:8px 0}
+    .question{margin:12px 0;padding:10px;border-radius:8px}
+    .options{margin-top:6px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:8px;border:0;cursor:pointer}
+    .btn-primary{background:#2563eb;color:#fff}
+    .btn-ghost{background:transparent;border:1px solid #999}
+    .result{font-weight:700;margin-top:12px}
+    .correct{background:#e6ffed;border:1px solid #2ecc71}
+    .incorrect{background:#fff1f0;border:1px solid #ff6b6b}
+    .answer-key{font-size:0.95rem;margin-top:12px}
+    .meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .small{font-size:0.9rem;color:#444}
+    .grade-badge{display:inline-block;padding:6px 10px;border-radius:999px;background:#f3f4f6}
+    @media (max-width:560px){body{padding:12px}}
+  </style>
+</head>
+<body>
+  <h1>Wisdom Spring Education, Chaung U</h1>
+  <h2>Grade 11 Biology October Test</h2>
+  <div class="card">
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <label style="flex:1">
+        Roll Number:
+        <input id="roll" name="roll" type="text" placeholder="Enter roll number" style="width:100%;padding:8px;margin-top:6px;border-radius:6px;border:1px solid #ccc" required>
+      </label>
+      <div class="small">Total Marks: <strong>50</strong></div>
+    </div>
+  </div>
+
+  <form id="mcqForm" class="card" onsubmit="return false;">
+    <div class="small">Instructions: Each question carries 1 mark. No negative marking. Choose one option (A/B/C/D).</div>
+
+    <div id="questionsContainer">
+      <!-- Q1 -->
+      <div class="question" data-qid="1">
+        <div><strong>Q1.</strong> A branch of applied biology which combines biological sciences with engineering technologies is known as ....</div>
+        <div class="options">
+          <label><input type="radio" name="q1" value="A"> A) Biostatistics</label>
+          <label><input type="radio" name="q1" value="B"> B) Biotechnology</label>
+          <label><input type="radio" name="q1" value="C"> C) Evolution</label>
+          <label><input type="radio" name="q1" value="D"> D) Biodiversity</label>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="question" data-qid="2">
+        <div><strong>Q2.</strong> Which one is prokaryote?</div>
+        <div class="options">
+          <label><input type="radio" name="q2" value="A"> A) Eubacteria</label>
+          <label><input type="radio" name="q2" value="B"> B) Protist</label>
+          <label><input type="radio" name="q2" value="C"> C) Fungus</label>
+          <label><input type="radio" name="q2" value="D"> D) Plant</label>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="question" data-qid="3">
+        <div><strong>Q3.</strong> Sugar cane wastes are used to ferment to produce biofuel as .....</div>
+        <div class="options">
+          <label><input type="radio" name="q3" value="A"> A) methanol</label>
+          <label><input type="radio" name="q3" value="B"> B) nitric acid</label>
+          <label><input type="radio" name="q3" value="C"> C) carboxylic acid</label>
+          <label><input type="radio" name="q3" value="D"> D) ethanol</label>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="question" data-qid="4">
+        <div><strong>Q4.</strong> In the making of bread, a sticky protein gluten holds the ..... gas bubbles in the dough.</div>
+        <div class="options">
+          <label><input type="radio" name="q4" value="A"> A) oxygen</label>
+          <label><input type="radio" name="q4" value="B"> B) carbon dioxide</label>
+          <label><input type="radio" name="q4" value="C"> C) carbon monooxide</label>
+          <label><input type="radio" name="q4" value="D"> D) nitrogen</label>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="question" data-qid="5">
+        <div><strong>Q5.</strong> Which one is not included in domain Eukarya?</div>
+        <div class="options">
+          <label><input type="radio" name="q5" value="A"> A) Bacteria</label>
+          <label><input type="radio" name="q5" value="B"> B) Protists</label>
+          <label><input type="radio" name="q5" value="C"> C) Fungi</label>
+          <label><input type="radio" name="q5" value="D"> D) Plants</label>
+        </div>
+      </div>
+	  
+	  <!-- Q6 -->
+      <div class="question" data-qid="6">
+        <div><strong>Q6.</strong> In making yogurt, milk is added by ..... species to make lactic acid.</div>
+        <div class="options">
+          <label><input type="radio" name="q6" value="A"> A) Mycobacterium</label>
+          <label><input type="radio" name="q6" value="B"> B) Pseudomona</label>
+          <label><input type="radio" name="q6" value="C"> C) Lactobacillus</label>
+          <label><input type="radio" name="q6" value="D"> D) E. coli</label>
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="question" data-qid="7">
+        <div><strong>Q7.</strong> After the coagulation of protein casein, an enzyem ..... is added to form further coagulation and milk curd for purpose of cheese making.</div>
+        <div class="options">
+          <label><input type="radio" name="q7" value="A"> A) rennet</label>
+          <label><input type="radio" name="q7" value="B"> B) amylase</label>
+          <label><input type="radio" name="q7" value="C"> C) lipase</label>
+          <label><input type="radio" name="q7" value="D"> D) protease</label>
+        </div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="question" data-qid="8">
+        <div><strong>Q8.</strong> Starter culture of yeast to make wine from grape fruit is ....</div>
+        <div class="options">
+          <label><input type="radio" name="q8" value="A"> A) Lactobacillus</label>
+          <label><input type="radio" name="q8" value="B"> B) E. coli</label>
+          <label><input type="radio" name="q8" value="C"> C) Mycobacterium</label>
+          <label><input type="radio" name="q8" value="D"> D) Saccharomyces</label>
+        </div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="question" data-qid="9">
+        <div><strong>Q9.</strong> Chemical changes in organic substances brought about by microorganisms in the presence or absence of oxygen is defined as .....</div>
+        <div class="options">
+          <label><input type="radio" name="q9" value="A"> A) respiration</label>
+          <label><input type="radio" name="q9" value="B"> B) phagocytosis</label>
+          <label><input type="radio" name="q9" value="C"> C) fermentation</label>
+          <label><input type="radio" name="q9" value="D"> D) exocytosis</label>
+        </div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="question" data-qid="10">
+        <div><strong>Q10.</strong>  Enzymes are .... molecules formed in the living cells.</div>
+        <div class="options">
+          <label><input type="radio" name="q10" value="A"> A) carbohydrate</label>
+          <label><input type="radio" name="q10" value="B"> B) fat</label>
+          <label><input type="radio" name="q10" value="C"> C) protein</label>
+          <label><input type="radio" name="q10" value="D"> D) glucose</label>
+        </div>
+      </div>
+	  
+	  <!-- Q11 -->
+      <div class="question" data-qid="11">
+        <div><strong>Q11.</strong> Fat-digesting enzyme is ....</div>
+        <div class="options">
+          <label><input type="radio" name="q11" value="A"> A) amylase</label>
+          <label><input type="radio" name="q11" value="B"> B) peptidase</label>
+          <label><input type="radio" name="q11" value="C"> C) protease</label>
+          <label><input type="radio" name="q11" value="D"> D) lipase</label>
+        </div>
+      </div>
+
+      <!-- Q12 -->
+      <div class="question" data-qid="12">
+        <div><strong>Q12.</strong>  To remove blood-stained color by red hemoglobin, enzyme .... is added in biological washing powder.</div>
+        <div class="options">
+          <label><input type="radio" name="q12" value="A"> A) protease</label>
+          <label><input type="radio" name="q12" value="B"> B) insulin</label>
+          <label><input type="radio" name="q12" value="C"> C) amylase</label>
+          <label><input type="radio" name="q12" value="D"> D) hydrochloric acid</label>
+        </div>
+      </div>
+
+      <!-- Q13 -->
+      <div class="question" data-qid="13">
+        <div><strong>Q13.</strong> ...... enzyme is used in extracting fruit juice.</div>
+        <div class="options">
+          <label><input type="radio" name="q13" value="A"> A) cellulose</label>
+          <label><input type="radio" name="q13" value="B"> B) pectinase</label>
+          <label><input type="radio" name="q13" value="C"> C) lipase</label>
+          <label><input type="radio" name="q13" value="D"> D) amylase</label>
+        </div>
+      </div>
+
+      <!-- Q14 -->
+      <div class="question" data-qid="14">
+        <div><strong>Q14.</strong> Dichotomous keys provide .... possible answer/s.</div>
+        <div class="options">
+          <label><input type="radio" name="q14" value="A"> A) one</label>
+          <label><input type="radio" name="q14" value="B"> B) two</label>
+          <label><input type="radio" name="q14" value="C"> C) three</label>
+          <label><input type="radio" name="q14" value="D"> D) four</label>
+        </div>
+      </div>
+
+      <!-- Q15 -->
+      <div class="question" data-qid="15">
+        <div><strong>Q15.</strong> Living things with unicellular without nucleus may be ....</div>
+        <div class="options">
+          <label><input type="radio" name="q15" value="A"> A) Archaeabacteria</label>
+          <label><input type="radio" name="q15" value="B"> B) Protista</label>
+          <label><input type="radio" name="q15" value="C"> C) Fungi</label>
+          <label><input type="radio" name="q15" value="D"> D) Plant</label>
+        </div>
+      </div>
+	  
+	  <!-- Q16 -->
+      <div class="question" data-qid="16">
+        <div><strong>Q16.</strong> According to water, which is incorrect?</div>
+        <div class="options">
+          <label><input type="radio" name="q16" value="A"> A) non-polar molecule</label>
+          <label><input type="radio" name="q16" value="B"> B) good solvent for substances</label>
+          <label><input type="radio" name="q16" value="C"> C) 60% in human body</label>
+          <label><input type="radio" name="q16" value="D"> D) 70-90% in cells</label>
+        </div>
+      </div>
+
+      <!-- Q17 -->
+      <div class="question" data-qid="17">
+        <div><strong>Q17.</strong> Specific gravity of water is highest at .... degree celcius. </div>
+        <div class="options">
+          <label><input type="radio" name="q17" value="A"> A) 1</label>
+          <label><input type="radio" name="q17" value="B"> B) 2</label>
+          <label><input type="radio" name="q17" value="C"> C) 3</label>
+          <label><input type="radio" name="q17" value="D"> D) 4</label>
+        </div>
+      </div>
+
+      <!-- Q18 -->
+      <div class="question" data-qid="18">
+        <div><strong>Q18.</strong> Simple sugars are ....</div>
+        <div class="options">
+          <label><input type="radio" name="q18" value="A"> A) monosaccharides</label>
+          <label><input type="radio" name="q18" value="B"> B) disaccharides</label>
+          <label><input type="radio" name="q18" value="C"> C) polysaccharides</label>
+          <label><input type="radio" name="q18" value="D"> D) polypeptides</label>
+        </div>
+      </div>
+
+      <!-- Q19 -->
+      <div class="question" data-qid="19">
+        <div><strong>Q19.</strong> Glycerol is a triose sugar. General formula of glycerol is ..... </div>
+        <div class="options">
+          <label><input type="radio" name="q19" value="A"> A) C6H12O6</label>
+          <label><input type="radio" name="q19" value="B"> B) C3H6O3</label>
+          <label><input type="radio" name="q19" value="C"> C) C5H10O5</label>
+          <label><input type="radio" name="q19" value="D"> D) C4H8O4</label>
+        </div>
+      </div>
+
+      <!-- Q20 -->
+      <div class="question" data-qid="20">
+        <div><strong>Q20.</strong> Disaccharides are made up of two monosaccharides, joined by ....</div>
+        <div class="options">
+          <label><input type="radio" name="q20" value="A"> A) hydrogen bond</label>
+          <label><input type="radio" name="q20" value="B"> B) peptide bond</label>
+          <label><input type="radio" name="q20" value="C"> C) ionic bond</label>
+          <label><input type="radio" name="q20" value="D"> D) glycosidic linkage</label>
+        </div>
+      </div>
+	  
+	  <!-- Q21 -->
+      <div class="question" data-qid="21">
+        <div><strong>Q21.</strong> Cellulose is ......</div>
+        <div class="options">
+          <label><input type="radio" name="q21" value="A"> A) monosaccharide</label>
+          <label><input type="radio" name="q21" value="B"> B) disaccharide</label>
+          <label><input type="radio" name="q21" value="C"> C) polysaccharide</label>
+          <label><input type="radio" name="q21" value="D"> D) polypeptide</label>
+        </div>
+      </div>
+
+      <!-- Q22 -->
+      <div class="question" data-qid="22">
+        <div><strong>Q22.</strong> Starch is .....</div>
+        <div class="options">
+          <label><input type="radio" name="q22" value="A"> A) monosaccharide</label>
+          <label><input type="radio" name="q22" value="B"> B) disaccharide</label>
+          <label><input type="radio" name="q22" value="C"> C) polysaccharide</label>
+          <label><input type="radio" name="q22" value="D"> D) polypeptide</label>
+        </div>
+      </div>
+
+      <!-- Q23 -->
+      <div class="question" data-qid="23">
+        <div><strong>Q23.</strong> Triglyceride consists of one glycerol join with three .....</div>
+        <div class="options">
+          <label><input type="radio" name="q23" value="A"> A) amino acids</label>
+          <label><input type="radio" name="q23" value="B"> B) hydrochloric acids</label>
+          <label><input type="radio" name="q23" value="C"> C) sulphuric acids</label>
+          <label><input type="radio" name="q23" value="D"> D) fatty acids</label>
+        </div>
+      </div>
+
+      <!-- Q24 -->
+      <div class="question" data-qid="24">
+        <div><strong>Q24.</strong> Animal lipids are ....</div>
+        <div class="options">
+          <label><input type="radio" name="q24" value="A"> A) unsaturated fat</label>
+          <label><input type="radio" name="q24" value="B"> B) saturated fat</label>
+          <label><input type="radio" name="q24" value="C"> C) good for health</label>
+          <label><input type="radio" name="q24" value="D"> D) unstable fat</label>
+        </div>
+      </div>
+
+      <!-- Q25 -->
+      <div class="question" data-qid="25">
+        <div><strong>Q25.</strong> Lipid helps animals to float. This feature is ....</div>
+        <div class="options">
+          <label><input type="radio" name="q25" value="A"> A) energy supply</label>
+          <label><input type="radio" name="q25" value="B"> B) insulation</label>
+          <label><input type="radio" name="q25" value="C"> C) buoyancy</label>
+          <label><input type="radio" name="q25" value="D"> D) transport</label>
+        </div>
+      </div>
+	  
+	  <!-- Q26 -->
+      <div class="question" data-qid="26">
+        <div><strong>Q26.</strong> The simplest unit and building block of protein is .....</div>
+        <div class="options">
+          <label><input type="radio" name="q26" value="A"> A) simple sugar</label>
+          <label><input type="radio" name="q26" value="B"> B) fatty acid</label>
+          <label><input type="radio" name="q26" value="C"> C) nucleic acid</label>
+          <label><input type="radio" name="q26" value="D"> D) amino acid</label>
+        </div>
+      </div>
+
+      <!-- Q27 -->
+      <div class="question" data-qid="27">
+        <div><strong>Q27.</strong> Callagen is secondary structure of protein showing .....</div>
+        <div class="options">
+          <label><input type="radio" name="q27" value="A"> A) linear chains</label>
+          <label><input type="radio" name="q27" value="B"> B) alpha-helix and beta-pleated sheets</label>
+          <label><input type="radio" name="q27" value="C"> C) three dimensional structure</label>
+          <label><input type="radio" name="q27" value="D"> D) most complex structure</label>
+        </div>
+      </div>
+
+      <!-- Q28 -->
+      <div class="question" data-qid="28">
+        <div><strong>Q28.</strong> Insulin is a primary structure of protein showing .....</div>
+        <div class="options">
+          <label><input type="radio" name="q28" value="A"> A) linear chains</label>
+          <label><input type="radio" name="q28" value="B"> B) alpha-helix and beta-pleated sheets</label>
+          <label><input type="radio" name="q28" value="C"> C) three dimensional structure</label>
+          <label><input type="radio" name="q28" value="D"> D) most complex structure</label>
+        </div>
+      </div>
+
+      <!-- Q29 -->
+      <div class="question" data-qid="29">
+        <div><strong>Q29.</strong> When egg white is heated, its molecules change shape. It is called ....</div>
+        <div class="options">
+          <label><input type="radio" name="q29" value="A"> A) chemical reaction</label>
+          <label><input type="radio" name="q29" value="B"> B) mechanical change</label>
+          <label><input type="radio" name="q29" value="C"> C) denatured</label>
+          <label><input type="radio" name="q29" value="D"> D) metabolic reaction</label>
+        </div>
+      </div>
+
+      <!-- Q30 -->
+      <div class="question" data-qid="30">
+        <div><strong>Q30.</strong> Function of enzymatic proteins is ....the chemical reactions.</div>
+        <div class="options">
+          <label><input type="radio" name="q30" value="A"> A) to slow down</label>
+          <label><input type="radio" name="q30" value="B"> B) to speed up</label>
+          <label><input type="radio" name="q30" value="C"> C) to take long time of</label>
+          <label><input type="radio" name="q30" value="D"> D) to slow down and speed up</label>
+        </div>
+      </div>
+	  
+	  <!-- Q31 -->
+      <div class="question" data-qid="31">
+        <div><strong>Q31.</strong> ..... is a storage protein for developing embryo.</div>
+        <div class="options">
+          <label><input type="radio" name="q31" value="A"> A) Hemoglobin</label>
+          <label><input type="radio" name="q31" value="B"> B) collagen</label>
+          <label><input type="radio" name="q31" value="C"> C) Ovalbumin</label>
+          <label><input type="radio" name="q31" value="D"> D) Insulin</label>
+        </div>
+      </div>
+
+      <!-- Q32 -->
+      <div class="question" data-qid="32">
+        <div><strong>Q32.</strong> .... are defensive protein.</div>
+        <div class="options">
+          <label><input type="radio" name="q32" value="A"> A) Insulin</label>
+          <label><input type="radio" name="q32" value="B"> B) Hemoglobin</label>
+          <label><input type="radio" name="q32" value="C"> C) Collagen</label>
+          <label><input type="radio" name="q32" value="D"> D) Antibodies</label>
+        </div>
+      </div>
+
+      <!-- Q33 -->
+      <div class="question" data-qid="33">
+        <div><strong>Q33.</strong> Contractile and motor proteins are ....</div>
+        <div class="options">
+          <label><input type="radio" name="q33" value="A"> A) keratin</label>
+          <label><input type="radio" name="q33" value="B"> B) globulin</label>
+          <label><input type="radio" name="q33" value="C"> C) hemoglobin</label>
+          <label><input type="radio" name="q33" value="D"> D) actin and myocin</label>
+        </div>
+      </div>
+
+      <!-- Q34 -->
+      <div class="question" data-qid="34">
+        <div><strong>Q34.</strong> Non-protein chemical compound that assists the enzyme's activity as a catalyst is called ....</div>
+        <div class="options">
+          <label><input type="radio" name="q34" value="A"> A) cofactor</label>
+          <label><input type="radio" name="q34" value="B"> B) substrate</label>
+          <label><input type="radio" name="q34" value="C"> C) product</label>
+          <label><input type="radio" name="q34" value="D"> D) reactant</label>
+        </div>
+      </div>
+
+      <!-- Q35 -->
+      <div class="question" data-qid="35">
+        <div><strong>Q35.</strong> Night blindness is caused by ......</div>
+        <div class="options">
+          <label><input type="radio" name="q35" value="A"> A) vitamin D deficiency</label>
+          <label><input type="radio" name="q35" value="B"> B) vitamin B1 deficiency</label>
+          <label><input type="radio" name="q35" value="C"> C) vitamin C deficiency</label>
+          <label><input type="radio" name="q35" value="D"> D) vitamin A deficiency</label>
+        </div>
+      </div>
+	  
+	  <!-- Q36 -->
+      <div class="question" data-qid="36">
+        <div><strong>Q36.</strong> Rickets and poor teeth are caused by vitamin .... deficiency.</div>
+        <div class="options">
+          <label><input type="radio" name="q36" value="A"> A) A</label>
+          <label><input type="radio" name="q36" value="B"> B) B</label>
+          <label><input type="radio" name="q36" value="C"> C) C</label>
+          <label><input type="radio" name="q36" value="D"> D) D</label>
+        </div>
+      </div>
+
+      <!-- Q37 -->
+      <div class="question" data-qid="37">
+        <div><strong>Q37.</strong> Each nucleotide contains ....nitrogenous base, .... sugar and phosphate.</div>
+        <div class="options">
+          <label><input type="radio" name="q37" value="A"> A) triose</label>
+          <label><input type="radio" name="q37" value="B"> B) hexose</label>
+          <label><input type="radio" name="q37" value="C"> C) pentose</label>
+          <label><input type="radio" name="q37" value="D"> D) glycogen</label>
+        </div>
+      </div>
+
+      <!-- Q38 -->
+      <div class="question" data-qid="38">
+        <div><strong>Q38.</strong>  Purine bases have .... ring/s.</div>
+        <div class="options">
+          <label><input type="radio" name="q38" value="A"> A) 1</label>
+          <label><input type="radio" name="q38" value="B"> B) 2</label>
+          <label><input type="radio" name="q38" value="C"> C) 3</label>
+          <label><input type="radio" name="q38" value="D"> D) 4</label>
+        </div>
+      </div>
+
+      <!-- Q39 -->
+      <div class="question" data-qid="39">
+        <div><strong>Q39.</strong> Nitrogenous base which does not consist in DNA is ....</div>
+        <div class="options">
+          <label><input type="radio" name="q39" value="A"> A) adenine</label>
+          <label><input type="radio" name="q39" value="B"> B) guanine</label>
+          <label><input type="radio" name="q39" value="C"> C) cytosine</label>
+          <label><input type="radio" name="q39" value="D"> D) uracil</label>
+        </div>
+      </div>
+
+      <!-- Q40 -->
+      <div class="question" data-qid="40">
+        <div><strong>Q40.</strong> Phosphate head of phospholipid bilayer is ....</div>
+        <div class="options">
+          <label><input type="radio" name="q40" value="A"> A) hydrophobic</label>
+          <label><input type="radio" name="q40" value="B"> B) hydrophilic</label>
+          <label><input type="radio" name="q40" value="C"> C) inert</label>
+          <label><input type="radio" name="q40" value="D"> D) repel water</label>
+        </div>
+      </div>
+	  
+	  <!-- Q41 -->
+      <div class="question" data-qid="41">
+        <div><strong>Q41.</strong> Which is not passive transport?</div>
+        <div class="options">
+          <label><input type="radio" name="q41" value="A"> A) diffusion</label>
+          <label><input type="radio" name="q41" value="B"> B) facillated diffusion</label>
+          <label><input type="radio" name="q41" value="C"> C) osmosis</label>
+          <label><input type="radio" name="q41" value="D"> D) using energy</label>
+        </div>
+      </div>
+
+      <!-- Q42 -->
+      <div class="question" data-qid="42">
+        <div><strong>Q42.</strong> Net movement of water from diluted solution to concentrated solution is ...</div>
+        <div class="options">
+          <label><input type="radio" name="q42" value="A"> A) diffusion</label>
+          <label><input type="radio" name="q42" value="B"> B) facillated diffusion</label>
+          <label><input type="radio" name="q42" value="C"> C) osmosis</label>
+          <label><input type="radio" name="q42" value="D"> D) active transport</label>
+        </div>
+      </div>
+
+      <!-- Q43 -->
+      <div class="question" data-qid="43">
+        <div><strong>Q43.</strong> Osmotic concentration of solute in the solution is lower than in the cytoplasm of cell is called as .... solution.</div>
+        <div class="options">
+          <label><input type="radio" name="q43" value="A"> A) isotonic</label>
+          <label><input type="radio" name="q43" value="B"> B) hypotonic</label>
+          <label><input type="radio" name="q43" value="C"> C) hypertonic</label>
+          <label><input type="radio" name="q43" value="D"> D) low water potential</label>
+        </div>
+      </div>
+
+      <!-- Q44 -->
+      <div class="question" data-qid="44">
+        <div><strong>Q44.</strong> In isotonic solution, red blood cell will.....</div>
+        <div class="options">
+          <label><input type="radio" name="q44" value="A"> A) swell</label>
+          <label><input type="radio" name="q44" value="B"> B) shrink</label>
+          <label><input type="radio" name="q44" value="C"> C) not change the shape</label>
+          <label><input type="radio" name="q44" value="D"> D) burst</label>
+        </div>
+      </div>
+
+      <!-- Q45 -->
+      <div class="question" data-qid="45">
+        <div><strong>Q45.</strong> Cell eating in solid particles is ....</div>
+        <div class="options">
+          <label><input type="radio" name="q45" value="A"> A) phagocytosis</label>
+          <label><input type="radio" name="q45" value="B"> B) pinocytosis</label>
+          <label><input type="radio" name="q45" value="C"> C) excretion</label>
+          <label><input type="radio" name="q45" value="D"> D) secretion</label>
+        </div>
+      </div>
+	  
+	  <!-- Q46 -->
+      <div class="question" data-qid="46">
+        <div><strong>Q46.</strong> Cell drinking in liquid and dissolved particles is ....</div>
+        <div class="options">
+          <label><input type="radio" name="q46" value="A"> A) phagocytosis</label>
+          <label><input type="radio" name="q46" value="B"> B) pinocytosis</label>
+          <label><input type="radio" name="q46" value="C"> C) excretion</label>
+          <label><input type="radio" name="q46" value="D"> D) secretion</label>
+        </div>
+      </div>
+
+      <!-- Q47 -->
+      <div class="question" data-qid="47">
+        <div><strong>Q47.</strong> Thyroid gland cells secrete hormone.</div>
+        <div class="options">
+          <label><input type="radio" name="q47" value="A"> A) phagocytosis</label>
+          <label><input type="radio" name="q47" value="B"> B) pinocytosis</label>
+          <label><input type="radio" name="q47" value="C"> C) endocytosis</label>
+          <label><input type="radio" name="q47" value="D"> D) exocytosis</label>
+        </div>
+      </div>
+
+      <!-- Q48 -->
+      <div class="question" data-qid="48">
+        <div><strong>Q48.</strong> Preservation of nature includes ....</div>
+        <div class="options">
+          <label><input type="radio" name="q48" value="A"> A) overfishing</label>
+          <label><input type="radio" name="q48" value="B"> B) overhunting</label>
+          <label><input type="radio" name="q48" value="C"> C) deforestation</label>
+          <label><input type="radio" name="q48" value="D"> D) forestation</label>
+        </div>
+      </div>
+
+      <!-- Q49 -->
+      <div class="question" data-qid="49">
+        <div><strong>Q49.</strong> Comparing of DNA from different species to find out how closely they are related is .....</div>
+        <div class="options">
+          <label><input type="radio" name="q49" value="A"> A) dichotomous key method</label>
+          <label><input type="radio" name="q49" value="B"> B) cladistics</label>
+          <label><input type="radio" name="q49" value="C"> C) traditional classification method</label>
+          <label><input type="radio" name="q49" value="D"> D) biophysics</label>
+        </div>
+      </div>
+
+      <!-- Q50 -->
+      <div class="question" data-qid="50">
+        <div><strong>Q50.</strong> Fermenter tanks are made by .....</div>
+        <div class="options">
+          <label><input type="radio" name="q50" value="A"> A) iron</label>
+          <label><input type="radio" name="q50" value="B"> B) plastic</label>
+          <label><input type="radio" name="q50" value="C"> C) stainless steel</label>
+          <label><input type="radio" name="q50" value="D"> D) wood</label>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:12px">
+      <button onclick="submitQuiz()">Submit</button>
+
+    <div class="result" id="result"></div>
+    </div>
+
+    <div id="output" class="result"></div>
+
+    <script>
+    function submitQuiz() {
+      const q1Answer = document.querySelector('input[name="q1"]:checked');
+      const q2Answer = document.querySelector('input[name="q2"]:checked');
+	  const q3Answer = document.querySelector('input[name="q3"]:checked');
+	  const q4Answer = document.querySelector('input[name="q4"]:checked');
+	  const q5Answer = document.querySelector('input[name="q5"]:checked');
+	  const q6Answer = document.querySelector('input[name="q6"]:checked');
+      const q7Answer = document.querySelector('input[name="q7"]:checked');
+	  const q8Answer = document.querySelector('input[name="q8"]:checked');
+	  const q9Answer = document.querySelector('input[name="q9"]:checked');
+	  const q10Answer = document.querySelector('input[name="q10"]:checked');
+	  const q11Answer = document.querySelector('input[name="q11"]:checked');
+      const q12Answer = document.querySelector('input[name="q12"]:checked');
+	  const q13Answer = document.querySelector('input[name="q13"]:checked');
+	  const q14Answer = document.querySelector('input[name="q14"]:checked');
+	  const q15Answer = document.querySelector('input[name="q15"]:checked');
+	  const q16Answer = document.querySelector('input[name="q16"]:checked');
+      const q17Answer = document.querySelector('input[name="q17"]:checked');
+	  const q18Answer = document.querySelector('input[name="q18"]:checked');
+	  const q19Answer = document.querySelector('input[name="q19"]:checked');
+	  const q20Answer = document.querySelector('input[name="q20"]:checked');
+	  const q21Answer = document.querySelector('input[name="q21"]:checked');
+      const q22Answer = document.querySelector('input[name="q22"]:checked');
+	  const q23Answer = document.querySelector('input[name="q23"]:checked');
+	  const q24Answer = document.querySelector('input[name="q24"]:checked');
+	  const q25Answer = document.querySelector('input[name="q25"]:checked');
+	  const q26Answer = document.querySelector('input[name="q26"]:checked');
+      const q27Answer = document.querySelector('input[name="q27"]:checked');
+	  const q28Answer = document.querySelector('input[name="q28"]:checked');
+	  const q29Answer = document.querySelector('input[name="q29"]:checked');
+	  const q30Answer = document.querySelector('input[name="q30"]:checked');
+	  const q31Answer = document.querySelector('input[name="q31"]:checked');
+      const q32Answer = document.querySelector('input[name="q32"]:checked');
+	  const q33Answer = document.querySelector('input[name="q33"]:checked');
+	  const q34Answer = document.querySelector('input[name="q34"]:checked');
+	  const q35Answer = document.querySelector('input[name="q35"]:checked');
+	  const q36Answer = document.querySelector('input[name="q36"]:checked');
+      const q37Answer = document.querySelector('input[name="q37"]:checked');
+	  const q38Answer = document.querySelector('input[name="q38"]:checked');
+	  const q39Answer = document.querySelector('input[name="q39"]:checked');
+	  const q40Answer = document.querySelector('input[name="q40"]:checked');
+	  const q41Answer = document.querySelector('input[name="q41"]:checked');
+      const q42Answer = document.querySelector('input[name="q42"]:checked');
+	  const q43Answer = document.querySelector('input[name="q43"]:checked');
+	  const q44Answer = document.querySelector('input[name="q44"]:checked');
+	  const q45Answer = document.querySelector('input[name="q45"]:checked');
+	  const q46Answer = document.querySelector('input[name="q46"]:checked');
+      const q47Answer = document.querySelector('input[name="q47"]:checked');
+	  const q48Answer = document.querySelector('input[name="q48"]:checked');
+	  const q49Answer = document.querySelector('input[name="q49"]:checked');
+	  const q50Answer = document.querySelector('input[name="q50"]:checked');
+	  
+      let score = 0;
+
+      if (q1Answer && q1Answer.value === 'B') score++;
+      if (q2Answer && q2Answer.value === 'A') score++;
+	  if (q3Answer && q3Answer.value === 'D') score++;
+	  if (q4Answer && q4Answer.value === 'B') score++;
+	  if (q5Answer && q5Answer.value === 'A') score++;
+	  if (q6Answer && q6Answer.value === 'C') score++;
+      if (q7Answer && q7Answer.value === 'A') score++;
+	  if (q8Answer && q8Answer.value === 'D') score++;
+	  if (q9Answer && q9Answer.value === 'C') score++;
+	  if (q10Answer && q10Answer.value === 'C') score++;
+	  if (q11Answer && q11Answer.value === 'D') score++;
+      if (q12Answer && q12Answer.value === 'A') score++;
+	  if (q13Answer && q13Answer.value === 'B') score++;
+	  if (q14Answer && q14Answer.value === 'B') score++;
+	  if (q15Answer && q15Answer.value === 'A') score++;
+	  if (q16Answer && q16Answer.value === 'A') score++;
+      if (q17Answer && q17Answer.value === 'D') score++;
+	  if (q18Answer && q18Answer.value === 'A') score++;
+	  if (q19Answer && q19Answer.value === 'B') score++;
+	  if (q20Answer && q20Answer.value === 'D') score++;
+	  if (q21Answer && q21Answer.value === 'C') score++;
+      if (q22Answer && q22Answer.value === 'C') score++;
+	  if (q23Answer && q23Answer.value === 'D') score++;
+	  if (q24Answer && q24Answer.value === 'B') score++;
+	  if (q25Answer && q25Answer.value === 'C') score++;
+	  if (q26Answer && q26Answer.value === 'D') score++;
+      if (q27Answer && q27Answer.value === 'B') score++;
+	  if (q28Answer && q28Answer.value === 'A') score++;
+	  if (q29Answer && q29Answer.value === 'C') score++;
+	  if (q30Answer && q30Answer.value === 'B') score++;
+	  if (q31Answer && q31Answer.value === 'C') score++;
+      if (q32Answer && q32Answer.value === 'D') score++;
+	  if (q33Answer && q33Answer.value === 'D') score++;
+	  if (q34Answer && q34Answer.value === 'A') score++;
+	  if (q35Answer && q35Answer.value === 'D') score++;
+	  if (q36Answer && q36Answer.value === 'D') score++;
+      if (q37Answer && q37Answer.value === 'C') score++;
+	  if (q38Answer && q38Answer.value === 'B') score++;
+	  if (q39Answer && q39Answer.value === 'D') score++;
+	  if (q40Answer && q40Answer.value === 'B') score++;
+	  if (q41Answer && q41Answer.value === 'D') score++;
+      if (q42Answer && q42Answer.value === 'C') score++;
+	  if (q43Answer && q43Answer.value === 'B') score++;
+	  if (q44Answer && q44Answer.value === 'C') score++;
+	  if (q45Answer && q45Answer.value === 'A') score++;
+	  if (q46Answer && q46Answer.value === 'B') score++;
+      if (q47Answer && q47Answer.value === 'D') score++;
+	  if (q48Answer && q48Answer.value === 'D') score++;
+	  if (q49Answer && q49Answer.value === 'B') score++;
+	  if (q50Answer && q50Answer.value === 'C') score++;
+
+
+
+      const resultDiv = document.getElementById('result');
+      resultDiv.textContent = `You scored ${score} out of 50`;
+    }
+    </script>
+</body>
+</html>
